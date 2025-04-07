@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 text = 'Basic web surfing only';
             }
         } else if (type === 'download') {
-            if (speed >= 100) {
+            if (speed >= 75) {
                 quality = 'excellent';
                 text = 'Perfect for 4K streaming';
-            } else if (speed >= 50) {
+            } else if (speed >= 40) {
                 quality = 'good';
                 text = 'Great for HD streaming';
-            } else if (speed >= 25) {
+            } else if (speed >= 20) {
                 quality = 'moderate';
                 text = 'Good for browsing';
             } else {
@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 text = 'Basic web surfing only';
             }
         } else if (type === 'upload') {
-            if (speed >= 50) {
+            if (speed >= 40) {
                 quality = 'excellent';
                 text = 'Great for video calls';
-            } else if (speed >= 25) {
+            } else if (speed >= 20) {
                 quality = 'good';
                 text = 'Good for sharing files';
             } else if (speed >= 10) {
