@@ -1,29 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startTest');
-    const downloadSpeed = document.getElementById('download-speed');
-    const uploadSpeed = document.getElementById('upload-speed');
-    const ping = document.getElementById('ping');
     const progressFill = document.querySelector('.progress-fill');
     const statusText = document.getElementById('status-text');
-    const themeToggle = document.querySelector('.theme-toggle');
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     const themeIcon = themeToggle.querySelector('i');
 
     // Theme handling
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-
-    function updateThemeIcon(theme) {
-        themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.dataset.theme = savedTheme;
+        } else {
+            document.body.dataset.theme = prefersDarkScheme.matches ? 'dark' : 'light';
+        }
     }
+    
+    // Toggle theme
+    function toggleTheme() {
+        const currentTheme = document.body.dataset.theme;
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.body.dataset.theme = newTheme;
+        localStorage.setItem('theme', newTheme);
+    }
+    
+    // Event listeners for theme
+    themeToggle.addEventListener('click', toggleTheme);
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            document.body.dataset.theme = e.matches ? 'dark' : 'light';
+        }
+    });
+    
+    // Initialize theme on load
+    initializeTheme();
 
     function getQualityIndicator(speed, type) {
         let quality = '';
