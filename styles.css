@@ -460,8 +460,9 @@ h1 {
     }
 
     h1 {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     }
 
     .site-header {
