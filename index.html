@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Test | WorksByCV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="https://worksbycv.com" class="header-logo">WorksByCV</a>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Internet Speed Test</h1>
+            <div class="speed-display">
+                <div class="speed-item">
+                    <div class="speed-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="speed-value" id="ping">--<span class="unit">ms</span></div>
+                    <div class="speed-label">Ping</div>
+                    <div class="quality-indicator" id="ping-quality">--</div>
+                </div>
+                <div class="speed-item">
+                    <div class="speed-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="speed-value" id="download-speed">--<span class="unit">Mbps</span></div>
+                    <div class="speed-label">Download</div>
+                    <div class="quality-indicator" id="download-quality">--</div>
+                </div>
+                <div class="speed-item">
+                    <div class="speed-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <div class="speed-value" id="upload-speed">--<span class="unit">Mbps</span></div>
+                    <div class="speed-label">Upload</div>
+                    <div class="quality-indicator" id="upload-quality">--</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="status-text" id="status-text">Ready to test</div>
+            </div>
+
+            <button class="start-button" id="startTest">
+                <div class="loader"></div>
+                <span>Start Test</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>Made with <i class="fas fa-heart"></i> by WorksByCV</p>
+            <p class="credits">
+                <a href="https://github.com/worksbycv/speedtest" target="_blank">GitHub</a> •
+                <a href="https://fontawesome.com" target="_blank">Font Awesome</a> •
+                <a href="https://httpbin.org" target="_blank">HTTPBin</a>
+            </p>
+            <p class="small-text">© 2025 WorksByCV, All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
